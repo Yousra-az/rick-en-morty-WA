@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 2rem;
+    background-color: #f0f0f0;
+  }
+  
+  #characterList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  
+  .card {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  
+  .card img {
+    width: 100%;
+    border-radius: 4px;
+  }
+  
+  .fav-btn {
+    background-color:purple;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .fav-btn:hover {
+    background-color: #e91e63;
+  }
+  
