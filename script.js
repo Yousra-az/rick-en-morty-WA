@@ -6,18 +6,7 @@ const sortOrder = document.getElementById('sortOrder');
 
 let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
-// Fetch characters
-async function fetchCharacters() {
-  try {
-    const response = await fetch('https://rickandmortyapi.com/api/character');
-    const data = await response.json();
-    displayCharacters(data.results);
-  } catch (error) {
-    console.error('Error fetching characters:', error);
-  }
-}
-
-// Affiche les personnages
+// === Display Characters ===
 function displayCharacters(characters) {
   characterList.innerHTML = '';
 
@@ -30,19 +19,24 @@ function displayCharacters(characters) {
       <h3>${character.name}</h3>
       <p>Status: ${character.status}</p>
       <p>Species: ${character.species}</p>
-      <button class="fav-btn">❤️ Add to Favorites</button>
+      <button class="fav-btn">
+        ${favorites.includes(character.name) ? '✅ Favorite' : '❤️ Add to Favorites'}
+      </button>
     `;
 
     const favBtn = card.querySelector('.fav-btn');
     favBtn.addEventListener('click', () => {
-      addToFavorites(character.name);
+      if (!favorites.includes(character.name)) {
+        addToFavorites(character.name);
+        favBtn.textContent = '✅ Favorite';
+      }
     });
 
     characterList.appendChild(card);
   });
 }
 
-// Ajoute un personnage aux favoris
+// === Add to Favorites ===
 function addToFavorites(name) {
   if (!favorites.includes(name)) {
     favorites.push(name);
@@ -51,7 +45,7 @@ function addToFavorites(name) {
   }
 }
 
-// Met à jour la liste des favoris affichée
+// === Update Favorites UI ===
 function updateFavoritesUI() {
   favoritesList.innerHTML = '';
 
@@ -73,6 +67,7 @@ function updateFavoritesUI() {
       favorites = favorites.filter(fav => fav !== name);
       localStorage.setItem('favorites', JSON.stringify(favorites));
       updateFavoritesUI();
+      fetchAndDisplayCharacters(); // Refresh cards
     });
 
     li.appendChild(text);
@@ -81,7 +76,7 @@ function updateFavoritesUI() {
   });
 }
 
-// Recherche
+// === Search Input ===
 searchInput.addEventListener('input', () => {
   const query = searchInput.value.toLowerCase();
   fetch('https://rickandmortyapi.com/api/character')
@@ -94,7 +89,7 @@ searchInput.addEventListener('input', () => {
     });
 });
 
-// Filtrage et tri combiné
+// === Filter & Sort ===
 function fetchAndDisplayCharacters() {
   const selectedSpecies = speciesFilter.value;
   const selectedSort = sortOrder.value;
@@ -116,15 +111,23 @@ function fetchAndDisplayCharacters() {
       });
 
       displayCharacters(characters);
+
+      // Save preferences
+      localStorage.setItem('selectedSpecies', selectedSpecies);
+      localStorage.setItem('selectedSort', selectedSort);
     });
 }
 
-// Listeners
+// === Event Listeners ===
 speciesFilter.addEventListener('change', fetchAndDisplayCharacters);
 sortOrder.addEventListener('change', fetchAndDisplayCharacters);
 
-// Initialise
-fetchCharacters();
-updateFavoritesUI();
+// === Init ===
+const savedSpecies = localStorage.getItem('selectedSpecies');
+const savedSort = localStorage.getItem('selectedSort');
 
-  
+if (savedSpecies) speciesFilter.value = savedSpecies;
+if (savedSort) sortOrder.value = savedSort;
+
+fetchAndDisplayCharacters();
+updateFavoritesUI();
