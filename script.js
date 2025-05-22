@@ -1,4 +1,4 @@
-const characterList = document.getElementById('characterList');
+const characterList = document.getElementById('characterList'); 
 const searchInput = document.getElementById('searchInput');
 const favoritesList = document.getElementById('favoritesList');
 const speciesFilter = document.getElementById('speciesFilter');
@@ -7,6 +7,18 @@ const themeToggle = document.getElementById('themeToggle');
 const body = document.body;
 
 let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+let notes = JSON.parse(localStorage.getItem('notes')) || {}; // Notes perso
+
+// === IntersectionObserver ===
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, {
+  threshold: 0.1
+});
 
 // === Display Characters ===
 function displayCharacters(characters) {
@@ -23,16 +35,25 @@ function displayCharacters(characters) {
         <h3>${character.name}</h3>
         <p>Status: ${character.status}</p>
         <p>Species: ${character.species}</p>
+        <p>Gender: ${character.gender}</p>
+        <p>Episodes: ${character.episode.length}</p>
         <button class="fav-btn">
           ${favorites.includes(character.name) ? '✅ Favorite' : '❤️ Add to Favorites'}
         </button>
         <button class="more-btn">ℹ️ See more</button>
         <div class="more-info" id="${moreInfoId}" style="display: none;">
-          <p>Gender: ${character.gender}</p>
           <p>Origin: ${character.origin.name}</p>
           <p>Location: ${character.location.name}</p>
+          <p>Created: ${new Date(character.created).toLocaleDateString()}</p>
+          <form class="note-form">
+            <input type="text" placeholder="Add a personal note..." value="${notes[character.name] || ''}" required />
+            <button type="submit">💾 Save</button>
+          </form>
         </div>
       `;
+
+      // Observer attaché à chaque carte
+      observer.observe(card);
   
       const favBtn = card.querySelector('.fav-btn');
       favBtn.addEventListener('click', () => {
@@ -41,10 +62,10 @@ function displayCharacters(characters) {
           favBtn.textContent = '✅ Favorite';
         }
       });
-  
+
       const moreBtn = card.querySelector('.more-btn');
       const moreInfo = card.querySelector(`#${moreInfoId}`);
-  
+      
       moreBtn.addEventListener('click', () => {
         if (moreInfo.style.display === 'none') {
           moreInfo.style.display = 'block';
@@ -54,12 +75,22 @@ function displayCharacters(characters) {
           moreBtn.textContent = 'ℹ️ See more';
         }
       });
+
+      const noteForm = card.querySelector('.note-form');
+      noteForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = noteForm.querySelector('input');
+        const value = input.value.trim();
+        if (value !== '') {
+          notes[character.name] = value;
+          localStorage.setItem('notes', JSON.stringify(notes));
+          alert('Note saved ✅');
+        }
+      });
   
       characterList.appendChild(card);
     });
-  }
-  
-  
+}
 
 // === Add to Favorites ===
 function addToFavorites(name) {

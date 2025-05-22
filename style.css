@@ -1,19 +1,16 @@
-/* === Base générale === */
+/* === 🌞 MODE JOUR (par défaut) === */
 body {
     font-family: Arial, sans-serif;
     margin: 2rem;
     color: #000;
-    background: url('images/garage.jpg') no-repeat center center fixed;
+    background: url('image/citadel.jpg') no-repeat center center fixed;
     background-size: cover;
     transition: background 0.5s ease, color 0.5s ease;
+    overflow-x: hidden;
+    z-index: 1;
   }
   
-  h1 {
-    color: black;
-    text-shadow: 0 0 4px white;
-  }
-  
-  h2 {
+  h1, h2 {
     color: black;
     text-shadow: 0 0 4px white;
   }
@@ -32,6 +29,13 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     text-align: center;
+    color: black;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   }
   
   .card img {
@@ -39,7 +43,7 @@ body {
     border-radius: 4px;
   }
   
-  /* === Bouton "Ajouter aux favoris" === */
+  /* === Bouton "Add to Favorites" === */
   .fav-btn {
     background-color: purple;
     color: white;
@@ -54,7 +58,7 @@ body {
     background-color: #e91e63;
   }
   
-  /* === Bouton "Voir plus" === */
+  /* === Bouton "See More" === */
   .more-btn {
     margin-top: 10px;
     background-color: #00bcd4;
@@ -65,14 +69,55 @@ body {
     cursor: pointer;
   }
   
+  /* === Infos supplémentaires === */
   .more-info {
     margin-top: 10px;
     text-align: left;
     font-size: 0.9rem;
   }
   
-  /* === Bouton de changement de thème === */
-  button#themeToggle {
+  /* === Formulaire de notes === */
+  .note-form {
+    margin-top: 10px;
+    display: flex;
+    gap: 6px;
+  }
+  
+  .note-form input {
+    flex: 1;
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .note-form button {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* === Liste de favoris === */
+  #favoritesList {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 1rem;
+  }
+  
+  #favoritesList li {
+    background: rgba(255, 255, 255, 0.7);
+    margin-bottom: 5px;
+    padding: 8px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* === Bouton thème jour/nuit === */
+  #themeToggle {
     position: fixed;
     top: 10px;
     right: 10px;
@@ -84,16 +129,11 @@ body {
     font-weight: bold;
   }
   
-  .dark-theme button#themeToggle {
-    background: #9d4edd;
-    color: white;
-  }
-  
-  /* === Mode Nuit (thème sombre) === */
-  .dark-theme {
-    color: #fff;
-    background: url('https://i.imgur.com/42MbnSx.jpg') no-repeat center center fixed;
+  /* === 🌙 MODE NUIT === */
+  body.dark-theme {
+    background: url('image/garage.jpg') no-repeat center center fixed;
     background-size: cover;
+    color: #fff;
   }
   
   .dark-theme h1,
@@ -108,35 +148,23 @@ body {
     color: #fff;
   }
   
-/* === Base générale === */
-body {
-    position: relative;
-    font-family: Arial, sans-serif;
-    margin: 2rem;
-    color: #000;
-    overflow-x: hidden;
-    z-index: 1;
+  .dark-theme .note-form input {
+    background-color: #333;
+    color: white;
+    border: 1px solid #5fffd9;
   }
   
-/* === 🌞 MODE JOUR (par défaut) === */
-body {
-    background: url('image/citadel.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #000;
-    font-family: Arial, sans-serif;
-    margin: 2rem;
-    transition: background 0.5s ease, color 0.5s ease;
+  .dark-theme .note-form button {
+    background-color: #6a00ff;
   }
   
-  /* === 🌙 MODE NUIT === */
-  body.dark-theme {
-    background: url('image/garage.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #fff;
+  .dark-theme #favoritesList li {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
   }
   
-  /* === Texte en mode nuit === */
-  .dark-theme {
+  .dark-theme #themeToggle {
+    background: #9d4edd;
     color: white;
   }
   
