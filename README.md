@@ -22,11 +22,11 @@ Ik heb een webapplicatie gemaakt die informatie toont over personages uit de ser
 
 📁 **Structuur van het project**
 📁 Rick-en-Morty-WA
-├── css/
-│ └── style.css
-├── js/
-│ └── script.js
-├── 📁images/
-│ └── (achtergrondafbeeldingen)
-├── index.html
-└── README.md
+- ├── css/
+- │ └── style.css
+- ├── js/
+- │ └── script.js
+- ├── 📁images/
+- │ └── (achtergrondafbeeldingen)
+- ├── index.html
+- └── README.md
