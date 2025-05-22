@@ -28,5 +28,6 @@ Ik heb een webapplicatie gemaakt die informatie toont over personages uit de ser
 - │ └── script.js
 - ├── 📁images/
 - │ └── (achtergrondafbeeldingen)
+- │    └── ![Use Case Diagram](images/Diagramme r_m.png)
 - ├── index.html
 - └── README.md
