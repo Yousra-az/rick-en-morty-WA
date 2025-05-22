@@ -1,24 +1,32 @@
-# Rick en Morty Web App
+# Rick & Morty Web App
 
-## 📝 Over dit project
-Ik heb een web applicatie gemaakt met informatie over Rick en Morty. Je kan personages bekijken, hun details lezen, en er is een zoekfunctie. Ik heb dit project gemaakt voor het schoolvak Webontwikkeling.
+📝 **Over dit project**  
+Ik heb een webapplicatie gemaakt die informatie toont over personages uit de serie *Rick and Morty*. Je kan de personages bekijken, hun details lezen, ze sorteren, filteren, en zoeken. Deze applicatie is ontwikkeld voor het vak **Webontwikkeling**.
 
-## 🔧 Wat ik heb gebruikt
+🔧 **Wat ik heb gebruikt**
 - HTML
 - CSS
 - JavaScript
 - Fetch API
+- LocalStorage
 
-## 🎯 Wat je kan doen
-- Alle personages van de serie bekijken.
-- Info zien zoals: naam, status, soort, en waar ze zijn.
-- Een personage zoeken met de zoekbalk.
+🎯 **Wat je kan doen**
+- Alle personages van de serie bekijken
+- Info zien zoals naam, status, soort, locatie, geslacht, enz.
+- Personages zoeken met een zoekbalk
+- Filteren op soort (species)
+- Sorteren van A → Z of Z → A
+- Personages toevoegen aan een favorietenlijst (blijft bewaard)
+- Wisselen tussen light & dark mode
+- Meer info tonen via een “See more” knop
 
-## 📁 Mappen en bestanden
-📁 Rick-en-Morty-WA
-├── 📁 css
+📁 **Structuur van het project**
+Rick-en-Morty-WA/
+├── css/
 │ └── style.css
-├── 📁 js
+├── js/
 │ └── script.js
+├── images/
+│ └── (achtergrondafbeeldingen)
 ├── index.html
 └── README.md
