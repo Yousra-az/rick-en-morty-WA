@@ -3,38 +3,63 @@ const searchInput = document.getElementById('searchInput');
 const favoritesList = document.getElementById('favoritesList');
 const speciesFilter = document.getElementById('speciesFilter');
 const sortOrder = document.getElementById('sortOrder');
+const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
 
 let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
 // === Display Characters ===
 function displayCharacters(characters) {
-  characterList.innerHTML = '';
-
-  characters.forEach(character => {
-    const card = document.createElement('div');
-    card.className = 'card';
-
-    card.innerHTML = `
-      <img src="${character.image}" alt="${character.name}" />
-      <h3>${character.name}</h3>
-      <p>Status: ${character.status}</p>
-      <p>Species: ${character.species}</p>
-      <button class="fav-btn">
-        ${favorites.includes(character.name) ? '✅ Favorite' : '❤️ Add to Favorites'}
-      </button>
-    `;
-
-    const favBtn = card.querySelector('.fav-btn');
-    favBtn.addEventListener('click', () => {
-      if (!favorites.includes(character.name)) {
-        addToFavorites(character.name);
-        favBtn.textContent = '✅ Favorite';
-      }
+    characterList.innerHTML = '';
+  
+    characters.forEach(character => {
+      const card = document.createElement('div');
+      card.className = 'card';
+  
+      const moreInfoId = `more-${character.id}`;
+  
+      card.innerHTML = `
+        <img src="${character.image}" alt="${character.name}" />
+        <h3>${character.name}</h3>
+        <p>Status: ${character.status}</p>
+        <p>Species: ${character.species}</p>
+        <button class="fav-btn">
+          ${favorites.includes(character.name) ? '✅ Favorite' : '❤️ Add to Favorites'}
+        </button>
+        <button class="more-btn">ℹ️ See more</button>
+        <div class="more-info" id="${moreInfoId}" style="display: none;">
+          <p>Gender: ${character.gender}</p>
+          <p>Origin: ${character.origin.name}</p>
+          <p>Location: ${character.location.name}</p>
+        </div>
+      `;
+  
+      const favBtn = card.querySelector('.fav-btn');
+      favBtn.addEventListener('click', () => {
+        if (!favorites.includes(character.name)) {
+          addToFavorites(character.name);
+          favBtn.textContent = '✅ Favorite';
+        }
+      });
+  
+      const moreBtn = card.querySelector('.more-btn');
+      const moreInfo = card.querySelector(`#${moreInfoId}`);
+  
+      moreBtn.addEventListener('click', () => {
+        if (moreInfo.style.display === 'none') {
+          moreInfo.style.display = 'block';
+          moreBtn.textContent = '🔽 See less';
+        } else {
+          moreInfo.style.display = 'none';
+          moreBtn.textContent = 'ℹ️ See more';
+        }
+      });
+  
+      characterList.appendChild(card);
     });
-
-    characterList.appendChild(card);
-  });
-}
+  }
+  
+  
 
 // === Add to Favorites ===
 function addToFavorites(name) {
@@ -131,3 +156,21 @@ if (savedSort) sortOrder.value = savedSort;
 
 fetchAndDisplayCharacters();
 updateFavoritesUI();
+
+// === Theme toggle logic ===
+const savedTheme = localStorage.getItem('theme') || 'light';
+if (savedTheme === 'dark') {
+  body.classList.add('dark-theme');
+} else {
+  body.classList.remove('dark-theme');
+}
+
+themeToggle.addEventListener('click', () => {
+  if (body.classList.contains('dark-theme')) {
+    body.classList.remove('dark-theme');
+    localStorage.setItem('theme', 'light');
+  } else {
+    body.classList.add('dark-theme');
+    localStorage.setItem('theme', 'dark');
+  }
+});

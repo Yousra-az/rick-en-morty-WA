@@ -1,15 +1,31 @@
+/* === Base générale === */
 body {
     font-family: Arial, sans-serif;
     margin: 2rem;
-    background-color: #f0f0f0;
+    color: #000;
+    background: url('images/garage.jpg') no-repeat center center fixed;
+    background-size: cover;
+    transition: background 0.5s ease, color 0.5s ease;
   }
   
+  h1 {
+    color: black;
+    text-shadow: 0 0 4px white;
+  }
+  
+  h2 {
+    color: black;
+    text-shadow: 0 0 4px white;
+  }
+  
+  /* === Grille des cartes === */
   #characterList {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
   }
   
+  /* === Cartes personnages === */
   .card {
     background-color: white;
     padding: 1rem;
@@ -23,8 +39,9 @@ body {
     border-radius: 4px;
   }
   
+  /* === Bouton "Ajouter aux favoris" === */
   .fav-btn {
-    background-color:purple;
+    background-color: purple;
     color: white;
     border: none;
     padding: 8px 12px;
@@ -35,5 +52,91 @@ body {
   
   .fav-btn:hover {
     background-color: #e91e63;
+  }
+  
+  /* === Bouton "Voir plus" === */
+  .more-btn {
+    margin-top: 10px;
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .more-info {
+    margin-top: 10px;
+    text-align: left;
+    font-size: 0.9rem;
+  }
+  
+  /* === Bouton de changement de thème === */
+  button#themeToggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: #5cf2e6;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .dark-theme button#themeToggle {
+    background: #9d4edd;
+    color: white;
+  }
+  
+  /* === Mode Nuit (thème sombre) === */
+  .dark-theme {
+    color: #fff;
+    background: url('https://i.imgur.com/42MbnSx.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+  
+  .dark-theme h1,
+  .dark-theme h2 {
+    color: white;
+    text-shadow: 0 0 6px black;
+  }
+  
+  .dark-theme .card {
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid #5fffd9;
+    color: #fff;
+  }
+  
+/* === Base générale === */
+body {
+    position: relative;
+    font-family: Arial, sans-serif;
+    margin: 2rem;
+    color: #000;
+    overflow-x: hidden;
+    z-index: 1;
+  }
+  
+/* === 🌞 MODE JOUR (par défaut) === */
+body {
+    background: url('image/citadel.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #000;
+    font-family: Arial, sans-serif;
+    margin: 2rem;
+    transition: background 0.5s ease, color 0.5s ease;
+  }
+  
+  /* === 🌙 MODE NUIT === */
+  body.dark-theme {
+    background: url('image/garage.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+  }
+  
+  /* === Texte en mode nuit === */
+  .dark-theme {
+    color: white;
   }
   

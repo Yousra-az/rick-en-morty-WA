@@ -1,36 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rick & Morty App</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rick & Morty App</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>Personnages Rick & Morty </h1>
+  <button id="themeToggle">🌓 Switch Theme</button>
+  <h1>Rick & Morty Characters</h1>
 
-    <label for="speciesFilter">Filter by Species:</label>
-    <select id="speciesFilter">
-      <option value="all">All</option>
-      <option value="Human">Human</option>
-      <option value="Alien">Alien</option>
-    </select>
-    
-    <label for="sortOrder">Sort by Name:</label>
-    <select id="sortOrder">
-        <option value="az">A → Z</option>
-        <option value="za">Z → A</option>
-    </select>
+  <label for="speciesFilter">Filter by Species:</label>
+  <select id="speciesFilter">
+    <option value="all">All</option>
+    <option value="Human">Human</option>
+    <option value="Alien">Alien</option>
+  </select>
 
+  <label for="sortOrder">Sort by Name:</label>
+  <select id="sortOrder">
+    <option value="az">A → Z</option>
+    <option value="za">Z → A</option>
+  </select>
 
-    <input type="text" id="searchInput" placeholder="Zoek een character...."/>
-    <div id="characterList"></div>
+  <input type="text" id="searchInput" placeholder="Search for a character..." />
+  <div id="characterList"></div>
 
-    <h2>Favorites</h2>
-    <ul id="favoritesList"></ul>
+  <h2>Favorites</h2>
+  <ul id="favoritesList"></ul>
 
-    
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
