@@ -1,5 +1,8 @@
 # Rick & Morty Web App
 
+## 🔗Live demo
+- 🌍 Bekijk het project online: [https://yousra-az.github.io/rick-en-morty-WA/](https://yousra-az.github.io/rick-en-morty-WA/)
+
 📝 **Over dit project**  
 Ik heb een webapplicatie gemaakt die informatie toont over personages uit de serie *Rick and Morty*. Je kan de personages bekijken, hun details lezen, ze sorteren, filteren, en zoeken. Deze applicatie is ontwikkeld voor het vak **Webontwikkeling**.
 
