@@ -21,12 +21,12 @@ Ik heb een webapplicatie gemaakt die informatie toont over personages uit de ser
 - Meer info tonen via een “See more” knop
 
 📁 **Structuur van het project**
-Rick-en-Morty-WA/
+📁 Rick-en-Morty-WA
 ├── css/
 │ └── style.css
 ├── js/
 │ └── script.js
-├── images/
+├── 📁images/
 │ └── (achtergrondafbeeldingen)
 ├── index.html
 └── README.md
