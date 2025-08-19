@@ -1,7 +1,7 @@
 # Rick & Morty SPA
 
 Schoolproject **Advanced Web**.  
-Single Page Application die de [Rick and Morty API](https://rickandmortyapi.com/) gebruikt.
+Single Page Application die de [Rick and Morty API](https://rickandmortyapi.com/) gebruikt om personages te tonen, filteren, sorteren en opslaan in favorieten.
 
 ---
 
@@ -9,34 +9,36 @@ Single Page Application die de [Rick and Morty API](https://rickandmortyapi.com/
 - Zoeken op naam  
 - Filteren op soort (Human / Alien)  
 - Sorteren A–Z / Z–A  
-- Favorieten opslaan (LocalStorage)  
-- Persoonlijke notities per personage  
-- Licht / Donker thema  
-- Kaartweergave + tabelweergave (8 kolommen)  
-- Responsive design  
-- Loader tijdens laden  
-- Scroll animatie  
+- Favorieten opslaan in **LocalStorage**  
+- Persoonlijke notities per personage (blijven bewaard)  
+- Licht / Donker thema (voorkeur onthouden)  
+- Kaartweergave (met detail en "see more")  
+- Tabelweergave (8 kolommen: ID, Naam, Status, Soort, Geslacht, Oorsprong, Locatie, #Episodes)  
+- Loader tijdens het ophalen van data  
+- Scroll animatie (met **IntersectionObserver**)  
+- **Responsive design** voor mobiel en desktop  
 
 ---
 
 ## Bestanden
-- `index.html` → structuur  
-- `style.css` → design (thema’s, grid, responsive)  
-- `script.js` → logica (API, filters, favorieten, notities, LocalStorage)  
+- `index.html` → structuur van de pagina  
+- `style.css` → design (grid, flexbox, thema’s, responsive, loader)  
+- `script.js` → logica (API calls, filters, sorteren, favorieten, notities, opslag)  
 
 ---
 
 ## Technieken
-- **DOM**: dynamische kaarten, events, formulieren  
-- **JavaScript modern**: const/let, template literals, filter/sort, arrow functions, ternary, promises, async/await  
-- **Observer API**: scroll animatie  
-- **API + JSON**: data ophalen van Rick and Morty API  
-- **LocalStorage**: favorieten, notities, voorkeuren  
-- **CSS**: Grid, Flexbox, thema licht/donker  
+- **DOM manipulatie**: dynamische kaarten maken, events koppelen, formulieren  
+- **Modern JavaScript**: const/let, template literals, array methoden (filter/sort), arrow functions, ternary operator, promises, async/await  
+- **Observer API**: IntersectionObserver voor animatie bij scrollen  
+- **API + JSON**: data ophalen en tonen  
+- **LocalStorage**: favorieten, thema, notities, filter/sort voorkeuren  
+- **Form validatie**: notitieveld verplicht tekst  
+- **Styling**: CSS Grid, Flexbox, thema switcher (licht/donker)  
 
 ---
 
 ## Bronnen
 - [Rick and Morty API](https://rickandmortyapi.com/)  
-- Afbeeldingen: serie Rick & Morty  
-- Hulp: ChatGPT + MDN Docs
+- Achtergrondafbeeldingen uit de serie Rick & Morty  
+- Hulp: ChatGPT + [MDN Web Docs](https://developer.mozilla.org/)
