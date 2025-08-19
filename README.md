@@ -15,7 +15,7 @@ Single Page Application die de [Rick and Morty API](https://rickandmortyapi.com/
 - Kaartweergave + tabelweergave (8 kolommen)  
 - Responsive design  
 - Loader tijdens laden  
-- Scroll animatie met IntersectionObserver  
+- Scroll animatie  
 
 ---
 
@@ -26,17 +26,17 @@ Single Page Application die de [Rick and Morty API](https://rickandmortyapi.com/
 
 ---
 
-## Technische vereisten
-- **DOM**: kaarten maken, events, formulieren  
-- **Moderne JS**: const/let, template literals, filter/sort, arrow functions, ternary, promises, async/await  
-- **Observer API**: animatie bij scrollen  
+## Technieken
+- **DOM**: dynamische kaarten, events, formulieren  
+- **JavaScript modern**: const/let, template literals, filter/sort, arrow functions, ternary, promises, async/await  
+- **Observer API**: scroll animatie  
 - **API + JSON**: data ophalen van Rick and Morty API  
 - **LocalStorage**: favorieten, notities, voorkeuren  
-- **CSS**: Grid, Flexbox, licht/donker thema  
+- **CSS**: Grid, Flexbox, thema licht/donker  
 
 ---
 
 ## Bronnen
 - [Rick and Morty API](https://rickandmortyapi.com/)  
-- Achtergrondafbeeldingen uit de serie Rick & Morty  
+- Afbeeldingen: serie Rick & Morty  
 - Hulp: ChatGPT + MDN Docs
