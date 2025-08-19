@@ -38,6 +38,13 @@ Single Page Application die de [Rick and Morty API](https://rickandmortyapi.com/
 
 ---
 
+## Screenshots
+![Screenshot 1]
+![Screenshot 2]
+![Screenshot 3]
+
+---
+
 ## Bronnen
 - [Rick and Morty API](https://rickandmortyapi.com/)  
 - Achtergrondafbeeldingen uit de serie Rick & Morty  
