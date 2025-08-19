@@ -7,29 +7,61 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <button id="themeToggle">🌓 Switch Theme</button>
+  <!-- Theme toggle -->
+  <button id="themeToggle" type="button" aria-label="Switch theme">🌓 Switch Theme</button>
+
   <h1>Rick & Morty Characters</h1>
 
+  <!-- Filters -->
   <label for="speciesFilter">Filter by Species:</label>
-  <select id="speciesFilter">
+  <select id="speciesFilter" name="species">
     <option value="all">All</option>
     <option value="Human">Human</option>
     <option value="Alien">Alien</option>
   </select>
 
   <label for="sortOrder">Sort by Name:</label>
-  <select id="sortOrder">
+  <select id="sortOrder" name="sort">
     <option value="az">A → Z</option>
     <option value="za">Z → A</option>
   </select>
 
-  
-  <input type="text" id="searchInput" placeholder="Search for a character..." />
+  <!-- Search -->
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="Search for a character..."
+    aria-label="Search for a character"
+    autocomplete="off"
+  />
+
+  <!-- Card view -->
   <div id="characterList"></div>
+
+  <!-- Table view -->
+  <h2>Characters (Table)</h2>
+  <table class="data" id="charTable" aria-describedby="tableHelp">
+    <caption id="tableHelp">Tabular view with 8 columns</caption>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Species</th>
+        <th>Gender</th>
+        <th>Origin</th>
+        <th>Location</th>
+        <th>#Episodes</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
 
   <h2>Favorites</h2>
   <ul id="favoritesList"></ul>
 
+  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>
+

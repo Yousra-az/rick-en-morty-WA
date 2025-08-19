@@ -1,168 +1,212 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 2rem;
-    color: #000;
-    background: url('image/citadel.jpg') no-repeat center center fixed;
-    background-size: cover;
-    transition: background 0.5s ease, color 0.5s ease;
-    overflow-x: hidden;
-    z-index: 1;
-  }
-  
-  h1, h2 {
-    color: black;
-    text-shadow: 0 0 4px white;
-  }
-  
-  
-  #characterList {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
-  }
-  
-  
-  .card {
-    background-color: white;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    text-align: center;
-    color: black;
-    transition: transform 0.3s ease;
-  }
-  
-  .card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  }
-  
-  .card img {
-    width: 100%;
-    border-radius: 4px;
-  }
-  
-  
-  .fav-btn {
-    background-color: purple;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .fav-btn:hover {
-    background-color: #e91e63;
-  }
-  
-  
-  .more-btn {
-    margin-top: 10px;
-    background-color: #00bcd4;
-    color: white;
-    border: none;
-    padding: 6px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .more-info {
-    margin-top: 10px;
-    text-align: left;
-    font-size: 0.9rem;
-  }
-  
-  
-  .note-form {
-    margin-top: 10px;
-    display: flex;
-    gap: 6px;
-  }
-  
-  .note-form input {
-    flex: 1;
-    padding: 6px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-  }
-  
-  .note-form button {
-    padding: 6px 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #4caf50;
-    color: white;
-    cursor: pointer;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 2rem;
+  color: #000;
+  background: url('image/citadel.jpg') no-repeat center center fixed;
+  background-size: cover;
+  transition: background 0.5s ease, color 0.5s ease;
+  overflow-x: hidden;
+  z-index: 1;
+}
 
-  #favoritesList {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 1rem;
-  }
-  
-  #favoritesList li {
-    background: rgba(255, 255, 255, 0.7);
-    margin-bottom: 5px;
-    padding: 8px;
-    border-radius: 6px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  
-  #themeToggle {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    background: #5cf2e6;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
+h1, h2 {
+  color: black;
+  text-shadow: 0 0 4px white;
+}
 
-  body.dark-theme {
-    background: url('image/garage.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #fff;
-  }
-  
-  .dark-theme h1,
-  .dark-theme h2 {
-    color: white;
-    text-shadow: 0 0 6px black;
-  }
-  
-  .dark-theme .card {
-    background-color: rgba(0, 0, 0, 0.6);
-    border: 1px solid #5fffd9;
-    color: #fff;
-  }
-  
-  .dark-theme .note-form input {
-    background-color: #333;
-    color: white;
-    border: 1px solid #5fffd9;
-  }
-  
-  .dark-theme .note-form button {
-    background-color: #6a00ff;
-  }
-  
-  .dark-theme #favoritesList li {
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-  }
-  
-  .dark-theme #themeToggle {
-    background: #9d4edd;
-    color: white;
-  }
-  
+#characterList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+  color: black;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Effet doux au survol (inchangé) */
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 4px;
+  display: block;
+}
+
+/* --- RENDRE VISIBLE TON OBSERVER --- */
+/* Quand script.js ajoute .visible sur les cartes, petite anim fade-in */
+.card.visible {
+  animation: fadeInUp 0.35s ease both;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.fav-btn {
+  background-color: purple;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.fav-btn:hover {
+  background-color: #e91e63;
+}
+
+.more-btn {
+  margin-top: 10px;
+  background-color: #00bcd4;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.more-info {
+  margin-top: 10px;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.note-form {
+  margin-top: 10px;
+  display: flex;
+  gap: 6px;
+}
+
+.note-form input {
+  flex: 1;
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.note-form button {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+#favoritesList {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+#favoritesList li {
+  background: rgba(255, 255, 255, 0.7);
+  margin-bottom: 5px;
+  padding: 8px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#themeToggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: #5cf2e6;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Thème sombre (inchangé) */
+body.dark-theme {
+  background: url('image/garage.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+}
+
+.dark-theme h1,
+.dark-theme h2 {
+  color: white;
+  text-shadow: 0 0 6px black;
+}
+
+.dark-theme .card {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid #5fffd9;
+  color: #fff;
+}
+
+.dark-theme .note-form input {
+  background-color: #333;
+  color: white;
+  border: 1px solid #5fffd9;
+}
+
+.dark-theme .note-form button {
+  background-color: #6a00ff;
+}
+
+.dark-theme #favoritesList li {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.dark-theme #themeToggle {
+  background: #9d4edd;
+  color: white;
+}
+
+/* Petit style utile si tu ajoutes de la validation */
+.error {
+  color: #d90429;
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+}
+/* Loading state */
+.loading {
+  padding: 0.75rem;
+  text-align: center;
+  font-weight: 600;
+  background: rgba(255,255,255,0.7);
+  border-radius: 8px;
+  margin: 0.5rem 0;
+}
+
+.loader {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 3px solid rgba(0,0,0,0.2);
+  border-top-color: #000;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  vertical-align: -3px;
+  margin-right: 8px;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Dark theme contrast */
+.dark-theme .loading {
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+}
+.dark-theme .loader {
+  border-color: rgba(255,255,255,0.3);
+  border-top-color: #fff;
+}
