@@ -1,36 +1,42 @@
-# Rick & Morty Web App
+# Rick & Morty SPA
 
-## 🔗Live demo
-- 🌍 Bekijk het project online: [https://yousra-az.github.io/rick-en-morty-WA/](https://yousra-az.github.io/rick-en-morty-WA/)
+Schoolproject **Advanced Web**.  
+Single Page Application die de [Rick and Morty API](https://rickandmortyapi.com/) gebruikt.
 
-📝 **Over dit project**  
-Ik heb een webapplicatie gemaakt die informatie toont over personages uit de serie *Rick and Morty*. Je kan de personages bekijken, hun details lezen, ze sorteren, filteren, en zoeken. Deze applicatie is ontwikkeld voor het vak **Webontwikkeling**.
+---
 
-🔧 **Wat ik heb gebruikt**
-- HTML
-- CSS
-- JavaScript
-- Fetch API
-- LocalStorage
+## Functionaliteiten
+- Zoeken op naam  
+- Filteren op soort (Human / Alien)  
+- Sorteren A–Z / Z–A  
+- Favorieten opslaan (LocalStorage)  
+- Persoonlijke notities per personage  
+- Licht / Donker thema  
+- Kaartweergave + tabelweergave (8 kolommen)  
+- Responsive design  
+- Loader tijdens laden  
+- Scroll animatie met IntersectionObserver  
 
-🎯 **Wat je kan doen**
-- Alle personages van de serie bekijken
-- Info zien zoals naam, status, soort, locatie, geslacht, enz.
-- Personages zoeken met een zoekbalk
-- Filteren op soort (species)
-- Sorteren van A → Z of Z → A
-- Personages toevoegen aan een favorietenlijst (blijft bewaard)
-- Wisselen tussen light & dark mode
-- Meer info tonen via een “See more” knop
+---
 
-📁 **Structuur van het project**
-📁 Rick-en-Morty-WA
-- ├── css/
-- │ └── style.css
-- ├── js/
-- │ └── script.js
-- ├── 📁images/
-- │ └── (achtergrondafbeeldingen)
-- │    └── ![Use Case Diagram](images/Diagramme r_m.png)
-- ├── index.html
-- └── README.md
+## Bestanden
+- `index.html` → structuur  
+- `style.css` → design (thema’s, grid, responsive)  
+- `script.js` → logica (API, filters, favorieten, notities, LocalStorage)  
+
+---
+
+## Technische vereisten
+- **DOM**: kaarten maken, events, formulieren  
+- **Moderne JS**: const/let, template literals, filter/sort, arrow functions, ternary, promises, async/await  
+- **Observer API**: animatie bij scrollen  
+- **API + JSON**: data ophalen van Rick and Morty API  
+- **LocalStorage**: favorieten, notities, voorkeuren  
+- **CSS**: Grid, Flexbox, licht/donker thema  
+
+---
+
+## Bronnen
+- [Rick and Morty API](https://rickandmortyapi.com/)  
+- Achtergrondafbeeldingen uit de serie Rick & Morty  
+- Hulp: ChatGPT + MDN Docs
