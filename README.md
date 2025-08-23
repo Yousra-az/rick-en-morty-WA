@@ -39,9 +39,10 @@ Single Page Application die de [Rick and Morty API](https://rickandmortyapi.com/
 ---
 
 ## Screenshots
-![Screenshot 1]
-![Screenshot 2]
-![Screenshot 3]
+![Screenshot 1](screenshot/Screenshot%201.png)
+![Screenshot 2](screenshot/Screenshot%202.png)
+![Screenshot 3](screenshot/Screenshot%203.png)
+
 
 ---
 
