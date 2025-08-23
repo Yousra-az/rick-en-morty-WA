@@ -1,18 +1,23 @@
+<!-- === HTML bestand voor Rick & Morty SPA (structuur van de applicatie) === -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rick & Morty App</title>
+  <!-- Metadata + titel + koppeling naar CSS -->
+<title>Rick & Morty App</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Theme toggle -->
-  <button id="themeToggle" type="button" aria-label="Switch theme">🌓 Switch Theme</button>
+<!-- === Interface elementen (filters, zoekveld, thema toggle) === -->
+  
+<!-- Knop om tussen licht en donker thema te wisselen -->
+<button id="themeToggle" type="button" aria-label="Switch theme">🌓 Switch Theme</button>
 
+<!-- Hoofdtitel van de applicatie -->
   <h1>Rick & Morty Characters</h1>
 
-  <!-- Filters -->
+  <!-- Filter: gebruikers kunnen personages filteren op soort -->
   <label for="speciesFilter">Filter by Species:</label>
   <select id="speciesFilter" name="species">
     <option value="all">All</option>
@@ -20,13 +25,14 @@
     <option value="Alien">Alien</option>
   </select>
 
+  <!-- Sorteeroptie: alfabetisch A→Z of Z→A -->
   <label for="sortOrder">Sort by Name:</label>
   <select id="sortOrder" name="sort">
     <option value="az">A → Z</option>
     <option value="za">Z → A</option>
   </select>
 
-  <!-- Search -->
+<!-- Zoekveld om personages te vinden op naam -->
   <input
     type="text"
     id="searchInput"
@@ -35,10 +41,10 @@
     autocomplete="off"
   />
 
-  <!-- Card view -->
+<!-- Hier komen de dynamische kaarten (JavaScript voegt ze toe) -->
   <div id="characterList"></div>
 
-  <!-- Table view -->
+<!-- Extra weergave: tabel met 8 kolommen (ID, Naam, Status, Soort, Geslacht, Oorsprong, Locatie, Episodes) -->
   <h2>Characters (Table)</h2>
   <table class="data" id="charTable" aria-describedby="tableHelp">
     <caption id="tableHelp">Tabular view with 8 columns</caption>
@@ -57,10 +63,11 @@
     <tbody id="tableBody"></tbody>
   </table>
 
+  <!-- Extra weergave: tabel met 8 kolommen (ID, Naam, Status, Soort, Geslacht, Oorsprong, Locatie, Episodes) -->
   <h2>Favorites</h2>
   <ul id="favoritesList"></ul>
 
-  <!-- Script -->
+<!-- Koppeling met JavaScript logica (fetch API, DOM manipulatie, events, etc.) -->
   <script src="script.js"></script>
 </body>
 </html>
