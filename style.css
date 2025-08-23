@@ -1,3 +1,4 @@
+/* === Basis styling van de body + achtergrondafbeelding (licht thema) === */
 body {
   font-family: Arial, sans-serif;
   margin: 2rem;
@@ -9,17 +10,20 @@ body {
   z-index: 1;
 }
 
+/* Titels met schaduw zodat tekst leesbaar blijft op achtergrondafbeelding */
 h1, h2 {
   color: black;
   text-shadow: 0 0 4px white;
 }
 
+/* Grid layout voor de kaarten (responsive) */
 #characterList {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
 }
 
+/* Styling voor individuele kaarten met hover-effect */
 .card {
   background-color: white;
   padding: 1rem;
@@ -36,6 +40,7 @@ h1, h2 {
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
+/* Afbeeldingen in kaarten altijd 100% breedte + afgeronde hoeken */
 .card img {
   width: 100%;
   border-radius: 4px;
@@ -52,6 +57,7 @@ h1, h2 {
   to   { opacity: 1; transform: none; }
 }
 
+/* Knop om personages toe te voegen aan favorieten */
 .fav-btn {
   background-color: purple;
   color: white;
@@ -66,6 +72,7 @@ h1, h2 {
   background-color: #e91e63;
 }
 
+/* Knop om extra informatie (meer details) te tonen */
 .more-btn {
   margin-top: 10px;
   background-color: #00bcd4;
@@ -104,6 +111,7 @@ h1, h2 {
   cursor: pointer;
 }
 
+/* Lijst van favorieten, met knoppen om te verwijderen */
 #favoritesList {
   list-style-type: none;
   padding: 0;
@@ -120,6 +128,7 @@ h1, h2 {
   align-items: center;
 }
 
+/* Knop rechtsboven om thema te wisselen (licht/donker) */
 #themeToggle {
   position: fixed;
   top: 10px;
@@ -132,7 +141,7 @@ h1, h2 {
   font-weight: bold;
 }
 
-/* Thème sombre (inchangé) */
+/* === Donker thema: andere achtergrond en kleuren === */
 body.dark-theme {
   background: url('image/garage.jpg') no-repeat center center fixed;
   background-size: cover;
@@ -145,12 +154,14 @@ body.dark-theme {
   text-shadow: 0 0 6px black;
 }
 
+/* Kaarten in donker thema: transparante achtergrond + neon rand */
 .dark-theme .card {
   background-color: rgba(0, 0, 0, 0.6);
   border: 1px solid #5fffd9;
   color: #fff;
 }
 
+/* Inputvelden in donker thema beter leesbaar maken */
 .dark-theme .note-form input {
   background-color: #333;
   color: white;
