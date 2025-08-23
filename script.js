@@ -1,3 +1,4 @@
+// === Variabelen koppelen aan HTML-elementen (DOM selecties) ===
 const characterList = document.getElementById('characterList'); 
 const searchInput = document.getElementById('searchInput');
 const favoritesList = document.getElementById('favoritesList');
@@ -7,13 +8,15 @@ const themeToggle = document.getElementById('themeToggle');
 const tableBody = document.getElementById('tableBody');
 const body = document.body;
 
+// Data bewaren tussen sessies met LocalStorage
+
 let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 let notes = JSON.parse(localStorage.getItem('notes')) || {}; // personal notes
 
 // Current search (empty = no name filter)
 let currentQuery = '';
 
-// === IntersectionObserver (soft reveal for cards) ===
+// === Observer API: kaarten verschijnen pas in beeld bij scrollen ===
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -24,7 +27,7 @@ const observer = new IntersectionObserver(entries => {
   threshold: 0.1
 });
 
-// === Display Characters (cards) ===
+// === Personages tonen in kaarten (met favorieten en notities) ===
 function displayCharacters(characters) {
   if (!Array.isArray(characters) || characters.length === 0) {
     characterList.innerHTML = '<p class="no-results">No results.</p>';
@@ -41,6 +44,7 @@ function displayCharacters(characters) {
 
     const moreInfoId = `more-${character.id}`;
 
+    // Template literal → moderne manier om HTML te genereren in JavaScript
     card.innerHTML = `
       <img src="${character.image}" alt="${character.name}" loading="lazy" />
       <h3>${character.name}</h3>
@@ -63,7 +67,7 @@ function displayCharacters(characters) {
       </div>
     `;
 
-    // Reveal-on-scroll effect
+// Koppelen van kaart aan IntersectionObserver voor animatie
     observer.observe(card);
 
     const favBtn = card.querySelector('.fav-btn');
@@ -106,7 +110,7 @@ function displayCharacters(characters) {
   renderTable(characters);
 }
 
-// === Render Table (8 columns) ===
+// === Personages tonen in tabel (8 kolommen: ID, naam, status, soort, geslacht, origin, locatie, #episodes) ===
 function renderTable(characters) {
   if (!tableBody) return;
   if (!Array.isArray(characters) || characters.length === 0) {
@@ -176,7 +180,7 @@ searchInput.addEventListener('input', () => {
   fetchAndDisplayCharacters(); // single source of truth
 });
 
-// === Filter & Sort (UNIFIED with search) + LOADER ===
+// === Data ophalen uit de Rick & Morty API + filters en sortering toepassen ===
 function fetchAndDisplayCharacters() {
   const selectedSpecies = speciesFilter.value; // "all" | "Human" | "Alien"
   const selectedSort = sortOrder.value;        // "az" | "za"
